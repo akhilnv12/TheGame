@@ -1,0 +1,69 @@
+<html>
+	<head>
+		 <script language="JavaScript"  src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.0/jquery.min.js"></script>
+		<style>
+			body{
+				width: 100%;
+				height: 100%;
+				overflow:hidden;
+			}
+			.mole{
+				background-color:#ef1515;
+				border-radius:100px 100px 0px 0px;
+				width:10%;
+				height:100%;
+				position:absolute;
+				top:100%;
+				background-image:url(eyes.jpg);
+				background-size:100%;
+				background-repeat:no-repeat;
+			}
+			.score{
+				font-size:50px;
+				color: black;
+				width:250px;
+				background-color: #f4f142;
+				border-radius: 20px;
+			}
+			#mole1{
+				left:30%;
+			}
+			#mole2{
+				left:70%;
+			}
+		</style>
+		<script>
+			jQuery(document).ready(function(){
+				jQuery(".mole").animate({top: "0%"},4000, function(){
+				
+					jQuery(".mole").animate({top: "100%"},300);
+					jQuery(".score").html("GAME OVER"), function(){
+						jQuery(".mole").animate({top: "100%"},300);
+					};
+				});
+				jQuery(".mole").hover(function(){
+					jQuery(this).stop().animate({top: "100%"},300, function(){	
+					jQuery(this).animate({top: "0%"},4000, function(){
+				
+							jQuery(".mole").animate({top: "100%"},300);
+							jQuery(".score").html("GAME OVER"), function(){
+							
+								jQuery(".mole").animate({top: "100%"},300);
+							};
+						});
+					
+					});
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<center>
+		<div class="score">
+		</div></center>
+		<div class="mole" id="mole1">
+		</div>
+		<div class="mole" id="mole2">
+		</div>
+	</body>
+</html>
